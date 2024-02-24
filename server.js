@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const port = process.env.PORT || 8080;
+const port = process.env.EXPRESS_PORT || 8080;
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -9,7 +9,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 app.use(express.json());
 app.use(cors());
 
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.post('/gemini', async (req, res) => {
     console.log(req.body.history);
